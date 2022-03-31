@@ -15,12 +15,6 @@
             <label for="nombre">Nombre:</label>
             <input type="text" placeholder="Tu nombre" id="nombre" required name="contacto[nombre]">
 
-            <label for=" email">E-mail:</label>
-            <input type="email" placeholder="Tu Email" id="email" required name="contacto[email]">
-
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" placeholder="Tu teléfono" id="telefono" required name="contacto[telefono]">
-
             <label for=" mensaje">Mensaje:</label>
             <textarea id="mensaje" name="contacto[mensaje]"> Escribe tu mensaje</textarea>
         </fieldset>
@@ -53,12 +47,9 @@
             </div>
             <!--.forma-contacto-->
 
-            <p>Si eligió teléfono, elija la fecha y la hora </p>
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="contacto[fecha]">
+            <!-- div para mostrar u ocultar el campo consicional según el método de contacto que elija -->
+            <div id="contacto"></div>
 
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" min="09:00" max="18:00" name="contacto[hora]">
         </fieldset>
 
         <input type="submit" value="Enviar" class="btn-verde">

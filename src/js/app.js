@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function darkMode() {
     // LEER LAS PREFERENCIAS DEL SISTEMA DE USUARIO:
 
-    const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: ligth )');
+    const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: auto )');
     // console.log(prefiereDarkMode.matches);
 
     if (prefiereDarkMode.matches) {
@@ -19,14 +19,14 @@ function darkMode() {
         document.body.classList.remove('dark-mode');
     } // Si prefiere Modo Oscuro agrega la clase dark-mode, caso contrario, la elimina y la pone por defecto.
 
-    // ACTUALIZAR EL MODO DE PREFERENCIA: 
+    // ACTUALIZAR EL MODO DE PREFERENCIA:
 
     prefiereDarkMode.addEventListener('change', function() {
         if (prefiereDarkMode.matches) {
             document.body.classList.add('dark-mode');
         } else {
             document.body.classList.remove('dark-mode');
-        } // Si prefiere Modo Oscuro agrega la clase dark-mode, caso contrario, la elimina y la pone por defecto.   
+        } // Si prefiere Modo Oscuro agrega la clase dark-mode, caso contrario, la elimina y la pone por defecto.
     })
 
 
@@ -64,6 +64,13 @@ function eventListeners() {
 
 
     mobileMenu.addEventListener('click', navegacionResponsive);
+
+
+    //Muestra campos condicionales
+    const metodoContacto = document.querySelectorAll('input[name="contacto[contacto]"]');
+    console.log(metodoContacto);
+
+
 }
 
 function navegacionResponsive() {
