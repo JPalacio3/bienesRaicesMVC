@@ -93,14 +93,22 @@ class PaginasController
             $contenido .= '<h1>Hola, Joel</h1>';
             $contenido .= '<h2>Tienes un mensaje nuevo de tu página de Bienes Raíces </h2>';
             $contenido .= '<p>Nombre: ' . $respuestas['nombre'] . '</p>';
-            $contenido .= '<p>E-Mail: ' . $respuestas['email'] . '</p>';
-            $contenido .= '<p>Teléfono: ' . $respuestas['telefono'] . '</p>';
+
+            //Enviar de forma condicional algunos campos de email o teléfono:
+            if ($respuestas['contacto'] == 'telefono') {
+                $contenido .= '<p> Eligió ser contactado vía Telefónica</p>';
+                $contenido .= '<p>Teléfono: ' . $respuestas['telefono'] . '</p>';
+                $contenido .= '<p>Fecha de Contacto: ' . $respuestas['fecha'] . '</p>';
+                $contenido .= '<p>Hora: ' . $respuestas['hora'] . '</p>';
+            } else {
+                // Es Email, entonces agregamos el campo de email:
+                $contenido .= '<p> Eligió ser contactado vía Email</p>';
+                $contenido .= '<p>E-Mail: ' . $respuestas['email'] . '</p>';
+            }
+
             $contenido .= '<p>Mensaje: ' . $respuestas['mensaje'] . '</p>';
             $contenido .= '<p>Vende o Compra: ' . $respuestas['tipo'] . '</p>';
             $contenido .= '<p>Precio o Presupuesto: $ ' . $respuestas['precio'] . '</p>';
-            $contenido .= '<p>Prefiere ser contactado(a) por: ' . $respuestas['contacto'] . '</p>';
-            $contenido .= '<p>Fecha de Contacto: ' . $respuestas['fecha'] . '</p>';
-            $contenido .= '<p>Hora: ' . $respuestas['hora'] . '</p>';
             $contenido .= '</html> ';
 
             // Agregar el contenido al cuerpo del email

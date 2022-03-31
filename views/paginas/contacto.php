@@ -16,7 +16,7 @@
             <input type="text" placeholder="Tu nombre" id="nombre" required name="contacto[nombre]">
 
             <label for=" mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="contacto[mensaje]"> Escribe tu mensaje</textarea>
+            <textarea id="mensaje" name="contacto[mensaje]"> </textarea>
         </fieldset>
         <!--información personal-->
 
