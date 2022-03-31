@@ -1,9 +1,12 @@
 <?php
 
+namespace Model;
+
 namespace Controllers;
 
 use MVC\Router;
 use Model\Propiedad;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class PaginasController
 {
@@ -58,8 +61,59 @@ class PaginasController
     public static function contacto(Router $router)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            debuggear($_POST);
-        }
-        $router->render('paginas/contacto', []);
-    }
+
+            $respuestas = $_POST['contacto'];
+
+            //Crear una instancia nueva de php mailer
+            $mail = new PHPMailer();
+
+            //Configurar el protocolo SMTP para el envío de emails
+            $mail->isSMTP(); //Protocolo SMTP
+            $mail->Host = 'smtp.mailtrap.io'; //Servidor SMTP (Dominio o Host)
+            $mail->SMTPAuth = true; //Enable SMTP authentication
+            $mail->Username = '8ce2f68932100e';
+            $mail->Password = '57010cf879c226';
+            $mail->SMTPSecure = 'tls'; // Transport Leyend Security (recomendado) PARA QUE LOS MAILS VIAJEN POR UN TÚNEL SEGURO
+            $mail->Port = 2525; // Puerto de conexión
+
+            // Configurar el contenido del Email
+            // Quien envía el email:
+            $mail->setFrom('admin@bienesraices.com');
+            // A quien va dirigido:
+            $mail->addAddress('joelpalacio630@gmail.com', 'J. Palacio');
+            // Asunto del email:
+            $mail->Subject = 'Tienes un nuevo mensaje desde tu página de bienes raíces';
+
+            // Habilitar HTML para el cuerpo del email
+            $mail->isHTML(true);
+            $mail->CharSet = 'UTF-8';
+
+            // Definir el contenido del email
+            $contenido = '<html>';
+            $contenido .= '<h1>Hola, Joel</h1>';
+            $contenido .= '<h2>Tienes un mensaje nuevo de tu página de Bienes Raíces </h2>';
+            $contenido .= '<p>Nombre: ' . $respuestas['nombre'] . '</p>';
+            $contenido .= '<p>E-Mail: ' . $respuestas['email'] . '</p>';
+            $contenido .= '<p>Teléfono: ' . $respuestas['telefono'] . '</p>';
+            $contenido .= '<p>Mensaje: ' . $respuestas['mensaje'] . '</p>';
+            $contenido .= '<p>Vende o Compra: ' . $respuestas['tipo'] . '</p>';
+            $contenido .= '<p>Precio o Presupuesto: $ ' . $respuestas['precio'] . '</p>';
+            $contenido .= '<p>Prefiere ser contactado(a) por: ' . $respuestas['contacto'] . '</p>';
+            $contenido .= '<p>Fecha de Contacto: ' . $respuestas['fecha'] . '</p>';
+            $contenido .= '<p>Hora: ' . $respuestas['hora'] . '</p>';
+            $contenido .= '</html> ';
+
+            // Agregar el contenido al cuerpo del email
+            $mail->Body = $contenido;
+            $mail->AltBody = ' Esto es texto alternativo sin HTML';
+
+            // Enviar el email
+            if ($mail->send()) {
+                echo '<script>alert("Mensaje enviado correctamente")</script>';
+            } else {
+                echo '<script>("Error al enviar el mensaje:"  . <?php> $mail->ErrorInfo; ?> . ")" </script>';
+}
+}
+$router->render('paginas/contacto', []);
+}
 }
