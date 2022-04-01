@@ -3,9 +3,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../includes/app.php';
 
 use MVC\Router;
-use Controllers\PropiedadController;
-use Controllers\VendedorController;
+use Controllers\LoginController;
 use Controllers\PaginasController;
+use Controllers\VendedorController;
+use Controllers\PropiedadController;
 
 $router = new Router();
 
@@ -37,7 +38,10 @@ $router->get('/contacto', [PaginasController::class, 'contacto']);
 $router->post('/contacto', [PaginasController::class, 'contacto']);
 
 
-
+// lOGIN Y AUTENTICACIÓN
+$router->get('/login', [LoginController::class, 'login']);
+$router->post('/login', [LoginController::class, 'login']);
+$router->get('/logout', [LoginController::class, 'logout']);
 
 
 
