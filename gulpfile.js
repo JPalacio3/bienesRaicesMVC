@@ -44,7 +44,7 @@ function versionWebp(done) {
     };
     src('public/build/img/**/*.{png,jpg}')
         .pipe(webp(opciones))
-        .pipe(dest('public/build'))
+        .pipe(dest('public/build/img'))
     done();
 }
 
@@ -54,7 +54,7 @@ function versionAvif(done) {
     };
     src('public/build/img/**/*.{png,jpg}')
         .pipe(avif(opciones))
-        .pipe(dest('public/build'))
+        .pipe(dest('public/build/img'))
     done();
 }
 
