@@ -27,7 +27,7 @@ if (!isset($inicio)) {
 
 <body>
 
-    <header class="header <?php echo $inicio ? 'inicio' : '' ?>">
+    <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
         <!-- Esta es la validación de la clase inicio con php y la agrega -->
         <div class="contenedor .contenido-header">
             <div class="barra">
@@ -46,9 +46,11 @@ if (!isset($inicio)) {
                         <a href="/propiedades">Anuncios</a>
                         <a href="/blog">Blog</a>
                         <a href="/contacto">Contacto</a>
-
-                        <?php if ($auth) :   ?>
-                        <a href="/cerrar-sesion">Cerrar Sesión</a>
+                        <?php if (!$auth) : ?>
+                        <a href="/login">Iniciar Sesión </a>
+                        <?php endif; ?>
+                        <?php if ($auth) : ?>
+                        <a href="/logout">Cerrar Sesión</a>
                         <?php endif; ?>
                     </nav>
                 </div>
