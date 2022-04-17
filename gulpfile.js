@@ -24,7 +24,7 @@ function css(done) {
         .pipe(sass()) // Compilarlo
         .pipe(postcss([autoprefixer(), cssnano()]))
         .pipe(sourcemaps.write('.'))
-        .pipe(dest('build/css')) // Almacenarla en el disco duro
+        .pipe(dest('/public/build/css')) // Almacenarla en el disco duro
     done();
 }
 
@@ -32,9 +32,9 @@ function imagenes(done) {
     const opciones = {
         optimizationLevel: 3
     }
-    src('src/img/**/*.{png,jpg}')
+    src('public/build/img/**/*.{png,jpg}')
         .pipe(cache(imagemin(opciones)))
-        .pipe(dest('build/img'))
+        .pipe(dest('public/build/img'))
     done();
 }
 
@@ -42,9 +42,9 @@ function versionWebp(done) {
     const opciones = {
         quality: 50
     };
-    src('src/img/**/*.{png,jpg}')
+    src('public/build/img/**/*.{png,jpg}')
         .pipe(webp(opciones))
-        .pipe(dest('build/img'))
+        .pipe(dest('public/build'))
     done();
 }
 
@@ -52,18 +52,18 @@ function versionAvif(done) {
     const opciones = {
         quality: 50
     };
-    src('src/img/**/*.{png,jpg}')
+    src('public/build/img/**/*.{png,jpg}')
         .pipe(avif(opciones))
-        .pipe(dest('build/img'))
+        .pipe(dest('public/build'))
     done();
 }
 
 function javascript(done) {
-    src('src/js/**/*.js')
+    src('public/build/js/**/*.js')
         .pipe(sourcemaps.init())
         .pipe(terser())
         .pipe(sourcemaps.write('.'))
-        .pipe(dest('build/js'));
+        .pipe(dest('/public/build/js'));
 
     done();
 }
