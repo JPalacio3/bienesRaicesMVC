@@ -1,8 +1,9 @@
-<div class="iconos-nosotros">
+<div class="iconos-nosotros" data-cy="iconos-nosotros">
     <div class="icono">
         <img src="build/img/icono1.svg" alt="icono seguridad" loading="lazy">
         <h3>Seguridad</h3>
-        <p>Aliquam accusamus esse maiores illum reprehenderit amet, voluptates illo error excepturi ratione, saepe nihil, necessitatibus quos delectus quod consequuntur ipsa veritatis magnam?</p>
+        <p>Aliquam accusamus esse maiores illum reprehenderit amet, voluptates illo error excepturi ratione, saepe
+            nihil, necessitatibus quos delectus quod consequuntur ipsa veritatis magnam?</p>
     </div>
     <div class="icono">
         <img src="build/img/icono2.svg" alt="icono precio loading=" lazy ">

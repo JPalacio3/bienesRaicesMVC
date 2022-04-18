@@ -1,5 +1,5 @@
 <main class="contenedor seccion">
-    <h1>Más Sobre Nosotros</h1>
+    <h2 data-cy="heading-nosotros">Más Sobre Nosotros</h2>
 
     <?php include 'iconos.php'; ?>
 
@@ -14,7 +14,7 @@
 
     <!--contenedor-anuncio-->
     <div class=" alinear-derecha ">
-        <a href=" /propiedades " class=" btn-verde ">Ver Todas</a>
+        <a href="/propiedades" class=" btn-verde " data-cy="ver-propiedades">Ver Todas</a>
     </div>
 </section>
 

@@ -1,5 +1,5 @@
 <main class="contenedor seccion">
-    <h1>Casas y Depas en Venta</h1>
+    <h1 data-cy="heading-propiedades">Casas y Depas en Venta</h1>
 
     <?php
 
