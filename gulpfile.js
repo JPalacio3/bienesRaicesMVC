@@ -17,6 +17,7 @@ const avif = require('gulp-avif');
 // Javascript
 const terser = require('gulp-terser-js');
 
+
 function css(done) {
     src('src/scss/**/*.scss') // Identificar el archivo .SCSS a compilar
         .pipe(sourcemaps.init())

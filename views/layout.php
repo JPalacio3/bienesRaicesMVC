@@ -41,7 +41,7 @@ if (!isset($inicio)) {
                 <!--manu hamburguesa-->
                 <div class="derecha">
                     <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="boton dark-mode-boton">
-                    <nav class="navegacion navOsc">
+                    <nav data-cy="navegacion-header" class="navegacion navOsc">
                         <a href="/nosotros">Nosotros</a>
                         <a href="/propiedades">Anuncios</a>
                         <a href="/blog">Blog</a>
@@ -66,15 +66,15 @@ if (!isset($inicio)) {
     <!-- footer -->
     <footer class="footer seccion ">
         <div class="contenedor contenedor-footer ">
-            <nav class="navegacion navOsc ">
-                <a href="/nosotros ">Nosotros</a>
-                <a href="/propiedades ">Anuncios</a>
-                <a href="/blog ">Blog</a>
+            <nav data-cy="navegacion-footer" class="navegacion navOsc ">
+                <a href="/nosotros">Nosotros</a>
+                <a href="/propiedades">Anuncios</a>
+                <a href="/blog">Blog</a>
                 <a href="/contacto">Contacto</a>
             </nav>
         </div>
 
-        <p class="copyrigth ">Todos los Derechos Reservados - J. Palacio &copy; -
+        <p data-cy="copyrigth" class="copyrigth">Todos los Derechos Reservados - J. Palacio &copy; -
             <?php echo date('Y'); ?>
             <!-- permite ajustar la fecha de manera automática. -->
         </p>

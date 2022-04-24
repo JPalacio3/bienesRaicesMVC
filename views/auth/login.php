@@ -1,15 +1,13 @@
 <main class='contenedor seccion contenido-centrado'>
-    <h1>Iniciar Sesión</h1>
+    <h1 data-cy="heading-login">Iniciar Sesión</h1>
 
     <?php
     // Agregamos la validación de errores al formulario:
     foreach ($errores as $error) : ?>
-    <div class="alerta error">
-        <?php echo $error; ?>
-    </div>
+    <div data-cy="alerta-login" class="alerta error"><?php echo $error; ?></div>
     <?php endforeach; ?>
 
-    <form class='formulario' method='POST' action="/login">
+    <form data-cy="formulario-login" class='formulario' method='POST' action="/login">
         <fieldset>
             <legend>Email y Password</legend>
 
