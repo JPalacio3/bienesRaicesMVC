@@ -2,9 +2,11 @@
 
 namespace Model;
 
+// use Model\ActiveRecord;
 use App\ActiveRecord as AppActiveRecord;
 
-class ActiveRecord {
+class ActiveRecord
+{
 
     // Base de datos:
     protected static $db;
@@ -73,7 +75,7 @@ class ActiveRecord {
         $resultado = '';
         if (!is_null($this->id)) {
             // Actualizando:
-           $resultado = $this->actualizar();
+            $resultado = $this->actualizar();
         } else {
             //Creando un nuevo registro:
             $resultado = $this->crear();
@@ -101,7 +103,7 @@ class ActiveRecord {
     {
         $atributos = [];
         foreach (static::$columnasDB as $columna) {
-            if ($columna == 'id') continue; // Ignorar el Id en el arreglo de atributos. 
+            if ($columna == 'id') continue; // Ignorar el Id en el arreglo de atributos.
             $atributos[$columna] = $this->$columna;
         }
         return $atributos;
@@ -124,12 +126,11 @@ class ActiveRecord {
         //Comprobar si existe el archivo:
         if (!is_null($this->id)) {
             $this->borrarImagen();
-        } 
+        }
         // Asignar al atributo de imagen el nombre de la imagen
         if ($imagen) {
             $this->imagen = $imagen;
         }
-
     }
 
     // Eliminar el archivo de imagen:
